@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Submission Portal{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand-wrap">
+            <div class="ena-mark">BIO SAMPLE</div>
+            <div class="brand-divider"></div>
+            <div class="brand-title">Submission Authentication Portal</div>
+        </div>
+        <a class="support" href="https://www.ebi.ac.uk/ena/browser/support" target="_blank" rel="noopener">
+            Support ↗
+        </a>
+    </header>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
