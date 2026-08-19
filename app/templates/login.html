@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Login | Submission Authentication Portal{% endblock %}
+
+{% block content %}
+<main class="page-grid">
+    <section class="welcome-card">
+        <h1>Welcome to the Submission Authentication Portal.</h1>
+        <p class="lead">
+            This is a Web Application to get the Authentication Token for Submitting the Bio Samples
+        </p>
+    </section>
+
+    <section class="login-panel">
+        {% if message %}
+            <h2>Logged in</h2>
+            <p class="subtitle">Thanks for providing your credentials to get Authentication</p>
+        {% else %}
+             <h2>Login</h2>
+             <p class="subtitle">Please provide your local portal credentials</p>
+        {% endif %}
+
+
+        {% if error %}
+            <div class="alert">{{ error }}</div>
+        {% endif %}
+
+        {% if message %}
+            <div class="alert-message">{{ message }}</div>
+
+
+        {% else %}
+            <form method="post" action="/login" class="auth-form">
+                <label>
+                    <span>Username</span>
+                    <input
+                        name="username"
+                        value="{{ username or '' }}"
+                        autocomplete="username"
+                        placeholder="Submission account"
+                        required
+                    >
+                </label>
+
+                <label>
+                    <span>Password</span>
+                    <input
+                        name="password"
+                        type="password"
+                        autocomplete="current-password"
+                        placeholder="Password"
+                        required
+                    >
+                </label>
+
+                <div class="button-row">
+                    <button class="btn btn-login" type="submit">Login</button>
+                </div>
+            </form>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
